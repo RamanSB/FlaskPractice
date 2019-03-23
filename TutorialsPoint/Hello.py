@@ -6,7 +6,7 @@ Created on Sat Mar 23 18:56:02 2019
 @author: RamanSB
 """
 
-from flask import Flask, redirect, url_for
+from flask import Flask, redirect, url_for, render_template
 app = Flask(__name__)
 
 
@@ -48,6 +48,16 @@ def hello_user(name):
 
 #if we access localhost/user/abcde, we will be redirected to the url bounded to the hello_guest function
 # localhost/guest/abcde
+
+
+@app.route('/hello/<user>')
+def hello_name(user):
+    return render_template('hello.html', name=user) #name variable will be rendered in to the html.
+
+
+@app.route('/')
+def index():
+    return render_template('hello.html')
 
 
 
