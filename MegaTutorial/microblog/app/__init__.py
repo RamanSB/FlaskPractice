@@ -20,7 +20,7 @@ app.config.from_object(Config)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
-login.login_view = 'login'
+login.login_view = 'login' #flask_login requires to know which view function is responsible for logging users in.
 
 
 if not app.debug:
