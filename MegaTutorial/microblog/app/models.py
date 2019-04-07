@@ -86,9 +86,6 @@ class Post(db.Model):
         return '<Post {}>'.format(self.body)
 
 
-
-    
-    
 @login.user_loader
 def load_user(id):
     return User.query.get(int(id))
