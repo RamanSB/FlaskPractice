@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 25 22:30:19 2019
+from app import create_app, db
+from app.models import User, Post
 
-@author: RamanSB
-"""
+app = create_app()
 
-from app import app, db
+@app.shell_context_processor
+def make_shell_context():
+    return {'db': db, 'User': User, 'Post': Post}
